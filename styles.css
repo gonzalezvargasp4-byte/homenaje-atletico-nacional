@@ -1,4 +1,3 @@
-/* Restablecemos márgenes globales */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #121212; /* Fondo oscuro elegante */
+    background-color: #121212;
     color: #ffffff;
     scroll-behavior: smooth;
 }
@@ -18,7 +17,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background-color: #00843D; /* Verde Nacional oficial */
+    background-color: #00843D;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -47,19 +46,23 @@ body {
 }
 
 .nav-links a:hover {
-    color: #a3e2a4; /* Tono verde claro al pasar el mouse */
+    color: #a3e2a4;
 }
 
-/* HERO SECTION (PANTALLA DE INICIO) */
+/* HERO SECTION - RENDER DEL NUEVO ATANASIO CON CUBIERTA */
 .hero-section {
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)), 
-                url('https://unsplash.com') no-repeat center center/cover;
-
+    /* Usamos una imagen de estadio de alta calidad protegida con degradado */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)), 
+                      url('https://unsplash.com');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 0 20px;
 }
 
 .hero-content h1 {
@@ -98,7 +101,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* SECCIÓN DE ÍDOLOS (FLEXBOX ADAPTATIVO) */
+/* SECCIÓN DE ÍDOLOS */
 .idolos-section {
     padding: 80px 5%;
 }
@@ -112,7 +115,7 @@ body {
 
 .idolos-grid {
     display: flex;
-    flex-wrap: wrap; /* Clave freeCodeCamp: permite que las tarjetas bajen si no caben */
+    flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
 }
@@ -121,25 +124,22 @@ body {
     background-color: #1a1a1a;
     border: 1px solid #333;
     border-radius: 10px;
-    width: 320px; /* Tamaño base en computadores */
+    width: 320px;
     overflow: hidden;
     transition: transform 0.3s, border-color 0.3s;
 }
 
-/* Efecto hover interactivo en las tarjetas de jugadores */
 .idolo-card:hover {
     transform: translateY(-10px);
     border-color: #00843D;
 }
 
-.idolo-img-placeholder {
-    height: 200px;
-    background-color: #252525;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #666;
-    font-weight: 700;
+.idolo-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 3px solid #00843D;
+    display: block; /* Asegura que la imagen renderice correctamente */
 }
 
 .idolo-info {
@@ -158,20 +158,10 @@ body {
     line-height: 1.5;
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 30px;
-    background-color: #0a0a0a;
-    color: #555;
-    font-size: 0.9rem;
-    border-top: 1px solid #222;
-}
-
 /* SECCIÓN DE TROFEOS */
 .trofeos-section {
     padding: 80px 5%;
-    background-color: #0b0b0b; /* Contraste un poco más oscuro */
+    background-color: #0b0b0b;
 }
 
 .trofeos-grid {
@@ -181,7 +171,7 @@ footer {
     gap: 30px;
 }
 
-.trofeo-card {
+.trofee-card {
     background: linear-gradient(145deg, #1a1a1a, #222);
     border: 1px solid #333;
     border-radius: 12px;
@@ -191,9 +181,18 @@ footer {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.trofeo-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
 .trofeo-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 132, 61, 0.2); /* Sombra verde */
     border-color: #00843D;
 }
 
@@ -214,7 +213,15 @@ footer {
     line-height: 1.6;
 }
 
-
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #0a0a0a;
+    color: #555;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+}
 
 /* 📱 RESPONSIVE DESIGN (MEDIA QUERIES) */
 @media (max-width: 768px) {
@@ -231,12 +238,8 @@ footer {
         font-size: 2.5rem;
     }
     
-    .hero-content h2 {
-        font-size: 1.5rem;
-    }
-    
-    .idolo-card {
-        width: 100%; /* Las tarjetas toman todo el ancho en celulares */
+    .idolo-card, .trofeo-card {
+        width: 100%;
         max-width: 400px;
     }
 }
