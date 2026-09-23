@@ -58,7 +58,7 @@ body {
     text-align: center;
     /* Usamos una imagen de estadio de alta calidad protegida con degradado */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)), 
-                      url('https://unsplash.com');
+                      url('imagenes/images.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
